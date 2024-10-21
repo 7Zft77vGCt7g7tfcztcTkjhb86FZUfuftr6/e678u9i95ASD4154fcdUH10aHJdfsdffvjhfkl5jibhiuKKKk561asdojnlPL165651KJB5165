@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
               </span>
             </Link>
           </SheetHeader>
-          <div className="flex flex-col justify-start items-end gap-5 pt-10 text-xl font-bold">
+          <div className="flex flex-col justify-start items-end gap-5 pt-10 text-xl">
             <Link href="/" className="flex gap-2 items-end select-none">
               Home
             </Link>

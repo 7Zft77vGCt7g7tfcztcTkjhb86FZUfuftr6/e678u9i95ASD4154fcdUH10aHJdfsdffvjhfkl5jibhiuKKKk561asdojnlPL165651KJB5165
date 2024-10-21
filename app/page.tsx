@@ -4,12 +4,12 @@ import EmailList from '@/components/EmailList';
 import { MultiStepLoader } from '@/components/HowToUse';
 import SearchForm from '@/components/SearchForm';
 import { howToUse } from '@/constant';
-import { IconSquareRoundedX } from '@tabler/icons-react';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import cardFlip from '@/assets/images/cardflip.gif';
 import Nezoka from '@/assets/images/nezoka.webp';
 import { useLoading } from '@/components/LoadingProvider';
+import { X } from 'lucide-react';
 
 export default function Home() {
   const [emails, setEmails] = useState([]);
@@ -75,7 +75,7 @@ export default function Home() {
 
   const { loading, setLoading } = useLoading();
   return (
-    <div className="max-sm:w-full w-fit flex flex-col justify-center items-center pt-48 pb-40">
+    <div className="md:w-full w-fit flex flex-col justify-center items-center pt-48 pb-40">
       <MultiStepLoader
         loadingStates={howToUse}
         loading={loading}
@@ -83,22 +83,22 @@ export default function Home() {
       />
       {loading && (
         <button
-          className="fixed top-4 right-4 z-[120]"
+          className="fixed top-4 right-4 z-[120] bg-red-500 rounded p-1"
           onClick={() => setLoading(false)}
         >
-          <IconSquareRoundedX className="h-10 w-10 text-red-500" />
+          <X className="h-6 w-6 text-white" />
         </button>
       )}
-      <div className="flex w-full justify-center items-center lg:items-end gap-5 flex-col lg:flex-row lg:pr-5">
-        <div className="w-full px-5 flex flex-col lg:justify-center lg:items-center">
+      <div className="flex w-fit lg:w-full justify-start items-start gap-5 flex-col lg:flex-row px-5 h-[70vh]">
+        <div className="w-full h-full flex flex-col gap-5 min-h-[70vh]">
           <SearchForm
             searchEmail={searchEmail}
             setSearchEmail={setSearchEmail}
             onSearch={handleSearch}
           />
-          <div className="flex overflow-hidden w-full mt-3">
+          <div className="flex overflow-hidden w-full h-full">
             {loadingEmail ? (
-              <div className="items-center justify-center w-full rounded-3xl border-[1px] border-black/40 h-full flex flex-col min-h-[500px]">
+              <div className="items-center justify-center w-full rounded-3xl border-[1px] border-black/40 md:h-full flex flex-col">
                 <div className="relative flex items-center justify-center">
                   <div className="w-24 h-24 border-4 border-b-transparent border-black rounded-full animate-spin" />
                   <Image
@@ -120,8 +120,8 @@ export default function Home() {
                       {/* Display countdown timer */}
                       <p className="text-gray-500">
                         Refreshing ({lastSearchedEmail})
-                        <br className="md:hidden" />
-                        in {refreshCountdown} seconds...
+                        <br className="md:hidden" /> in {refreshCountdown}{' '}
+                        seconds...
                       </p>
                       {/* Show "Refreshing..." message when refreshing */}
                       {isRefreshing && (
@@ -133,7 +133,7 @@ export default function Home() {
                     <EmailList emails={emails} />
                   </div>
                 ) : (
-                  <div className="items-center justify-center w-full min-h-[500px] rounded-3xl border-[1px] border-black/40 bg-black/5 h-full flex flex-col">
+                  <div className="items-center justify-center w-full rounded-3xl border-[1px] border-black/40 bg-black/5 h-full flex flex-col">
                     Submit email terlebih dahulu
                   </div>
                 )}
@@ -144,7 +144,7 @@ export default function Home() {
         <Image
           src={cardFlip}
           alt="card flip Nezoka"
-          className="max-md:px-5 h-full"
+          className="w-full h-full"
         />
       </div>
     </div>

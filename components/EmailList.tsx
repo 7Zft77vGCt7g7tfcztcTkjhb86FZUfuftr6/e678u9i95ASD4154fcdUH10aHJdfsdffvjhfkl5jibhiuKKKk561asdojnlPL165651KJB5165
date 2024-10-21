@@ -16,23 +16,17 @@ interface EmailListProps {
 const EmailList: React.FC<EmailListProps> = ({ emails }) => {
   if (emails.length === 0) {
     return (
-      <div className="items-center justify-center w-full min-h-[500px] rounded-3xl border-[1px] border-black/40 bg-black/5 h-full flex">
+      <div className="items-center justify-center w-full rounded-3xl border-[1px] border-black/40 bg-black/5 h-full flex px-10">
         <span>
-          Email Tidak Ditemukan <br />
-          <a
-            href="https://t.me/nezoka1"
-            target="__blank"
-            className="text-blue-500 underline"
-          >
-            Hubungi Kami
-          </a>
+          Email Tidak Ditemukan, Pastikan email yang kamu masukan benar, lalu
+          coba lagi.
         </span>
       </div>
     );
   }
 
   return (
-    <div className="border-[1px] border-black/40 h-[600px] w-full overflow-auto px-5 mt-2 flex flex-col gap-10 rounded-3xl">
+    <div className="border-[1px] border-black/40 w-full overflow-auto px-5 mt-2 flex flex-col gap-10 rounded-3xl">
       {emails.map((email) => (
         <div key={email.uid} className="p-1">
           <div dangerouslySetInnerHTML={{ __html: email.body }} />
