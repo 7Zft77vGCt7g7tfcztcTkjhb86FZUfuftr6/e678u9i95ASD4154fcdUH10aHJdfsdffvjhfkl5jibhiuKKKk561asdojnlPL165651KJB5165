@@ -68,17 +68,16 @@ const fetchLatestEmails = (searchEmail: string): Promise<void> => {
 
               try {
                 const parsedEmail = await simpleParser(buffer);
-                const htmlBody = parsedEmail.html || parsedEmail.text;
+                const htmlBody = parsedEmail.html || parsedEmail.text || '';
 
                 if (
                   (to.includes(searchEmail) || from.includes(searchEmail)) &&
-                  // (subject.includes('Your Netflix temporary access code') ||
-                  //   subject.includes('How to update your Netflix Household') ||
-                  //   subject.includes(
-                  //     'Cara memperbarui Rumah dengan Akun Netflix-mu'
-                  //   ) ||
-                  //   subject.includes('Kode akses sementaramu'))
-                  subject.includes('Netflix') &&
+                  (htmlBody.includes('Your Netflix temporary access code') ||
+                    htmlBody.includes('How to update your Netflix Household') ||
+                    htmlBody.includes(
+                      'Cara memperbarui Rumah dengan Akun Netflix-mu'
+                    ) ||
+                    htmlBody.includes('Kode akses sementaramu')) &&
                   uid
                 ) {
                   emailStore.push({
