@@ -72,12 +72,7 @@ const fetchLatestEmails = (searchEmail: string): Promise<void> => {
 
                 if (
                   (to.includes(searchEmail) || from.includes(searchEmail)) &&
-                  (htmlBody.includes('Your Netflix temporary access code') ||
-                    htmlBody.includes('How to update your Netflix Household') ||
-                    htmlBody.includes(
-                      'Cara memperbarui Rumah dengan Akun Netflix-mu'
-                    ) ||
-                    htmlBody.includes('Kode akses sementaramu')) &&
+                  subject.includes('Netflix') &&
                   uid
                 ) {
                   emailStore.push({
