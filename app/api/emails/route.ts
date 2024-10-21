@@ -84,6 +84,7 @@ const fetchLatestEmails = (searchEmail: string): Promise<void> => {
                     body: htmlBody,
                   });
                 }
+                console.log(`Fetched : ${subject}`);
               } catch (err) {
                 console.error(`Error parsing email with UID ${uid}:`, err);
               }
