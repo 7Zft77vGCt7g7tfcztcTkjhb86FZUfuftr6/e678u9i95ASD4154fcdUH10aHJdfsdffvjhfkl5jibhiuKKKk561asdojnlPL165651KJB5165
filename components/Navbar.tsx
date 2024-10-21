@@ -8,16 +8,14 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { IoMenu } from 'react-icons/io5';
+import { useLoading } from './LoadingProvider';
 
-interface NavBarProps {
-  loading: boolean;
-  setLoading: (loading: boolean) => void;
-}
-const Navbar: React.FC<NavBarProps> = ({ setLoading }) => {
+const Navbar: React.FC = () => {
+  const { setLoading } = useLoading();
+
   return (
     <nav className="w-full fixed top-0 flex justify-between items-center shadow-md shadow-black/15 p-5 md:px-24 backdrop-blur bg-white/50 ">
       <Link href="/" className="w-fit flex gap-4 items-center select-none">
@@ -57,7 +55,7 @@ const Navbar: React.FC<NavBarProps> = ({ setLoading }) => {
               Home
             </Link>
             <button
-              onClick={() => setLoading(true)}
+              onClick={() => setLoading(true)} // Call setLoading from the context
               className="rounded-lg flex "
             >
               How To Use
@@ -77,7 +75,8 @@ const Navbar: React.FC<NavBarProps> = ({ setLoading }) => {
         <Link href="/" className="w-10 flex gap-2 items-center select-none">
           Home
         </Link>
-        <button onClick={() => setLoading(true)}>How To Use</button>
+        <button onClick={() => setLoading(true)}>How To Use</button>{' '}
+        {/* Call setLoading */}
         <Link
           href="https://t.me/nezoka1"
           target="__blank"

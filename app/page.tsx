@@ -6,10 +6,10 @@ import SearchForm from '@/components/SearchForm';
 import { howToUse } from '@/constant';
 import { IconSquareRoundedX } from '@tabler/icons-react';
 import React, { useEffect, useState } from 'react';
-import { useLoading } from './layout';
 import Image from 'next/image';
 import cardFlip from '@/assets/images/cardflip.gif';
 import Nezoka from '@/assets/images/nezoka.webp';
+import { useLoading } from '@/components/LoadingProvider';
 
 export default function Home() {
   const [emails, setEmails] = useState([]);
