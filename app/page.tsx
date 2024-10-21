@@ -144,9 +144,7 @@ export default function Home() {
         <Image
           src={cardFlip}
           alt="card flip Nezoka"
-          width={650}
-          height={650}
-          className="max-md:px-5"
+          className="max-md:px-5 h-full"
         />
       </div>
     </div>
