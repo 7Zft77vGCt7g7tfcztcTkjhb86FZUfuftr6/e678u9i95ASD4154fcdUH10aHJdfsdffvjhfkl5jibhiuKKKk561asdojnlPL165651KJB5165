@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface Email {
@@ -16,11 +17,18 @@ interface EmailListProps {
 const EmailList: React.FC<EmailListProps> = ({ emails }) => {
   if (emails.length === 0) {
     return (
-      <div className="items-center justify-center w-full rounded-3xl border-[1px] border-black/40 bg-black/5 h-full flex px-10">
+      <div className="items-center justify-center w-full rounded-3xl border-[1px] border-black/40 bg-black/5 h-full flex flex-col px-10 text-center">
         <span>
           Email Tidak Ditemukan, Pastikan email yang kamu masukan benar, lalu
           coba lagi.
         </span>
+        <Link
+          href="https://t.me/nezoka1"
+          target="_blank"
+          className="text-blue-500 underline"
+        >
+          Atau hubungi Kami
+        </Link>
       </div>
     );
   }
