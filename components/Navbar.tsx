@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
     <nav className="w-full fixed top-0 flex justify-between items-center shadow-md shadow-black/15 p-5 md:px-24 backdrop-blur bg-white/50 ">
       <Link href="/" className="w-fit flex gap-4 items-center select-none">
         <Image
-          src={NezokaLogo}
+          src={}
           alt="Nezoka Logo"
           width={50}
           height={50}
