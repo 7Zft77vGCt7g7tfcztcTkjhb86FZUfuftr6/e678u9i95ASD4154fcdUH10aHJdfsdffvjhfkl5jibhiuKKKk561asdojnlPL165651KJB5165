@@ -1,6 +1,6 @@
 export const howToUse = [
   {
-    text: 'Masukkan email kamu di kolom yang asu.',
+    text: 'Masukkan email kamu di kolom yang tersedia.',
   },
   {
     text: 'Tunggu 2-10 menit untuk menerima kode.',
