@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import NezokaLogo from '@/assets/images/nezoka.webp';
 import {
   Sheet,
   SheetContent,
